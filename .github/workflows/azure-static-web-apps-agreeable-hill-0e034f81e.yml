@@ -33,7 +33,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_HILL_0E034F81E }}
           action: upload
           app_location: "/"                         # repo root
-          output_location: "dist/venue-website"     # << set to your exact outputPath
+          output_location: "dist/venue-website/browser"     # << set to your exact outputPath
           skip_app_build: true      
 
   close_pull_request_job:
@@ -47,5 +47,6 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_HILL_0E034F81E }}
           action: "close"
+
 
 
