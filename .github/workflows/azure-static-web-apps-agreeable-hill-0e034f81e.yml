@@ -2,12 +2,10 @@ name: Azure Static Web Apps CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
+    types: [ opened, synchronize, reopened, closed ]
+    branches: [ main ]
 
 jobs:
   build_and_deploy:
@@ -20,6 +18,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm'
 
       - name: Install deps
         run: npm install
@@ -27,25 +26,18 @@ jobs:
       - name: Build Angular
         run: npm run build
 
+      - name: Show dist (debug)
+        run: ls -R dist || true
+
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_HILL_0E034F81E }}
           action: upload
-          app_location: "/"                         # repo root
-          output_location: "dist/venue-website"     # << set to your exact outputPath
-          skip_app_build: true      
-
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_HILL_0E034F81E }}
-          action: "close"
+          # Deploy the compiled site:
+          app_location: dist/venue-website/browser
+          skip_app_build: true
+          # Pick up your SPA fallback config at repo root:
+          config_file_location: /
 
 
