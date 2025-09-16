@@ -1,19 +1,25 @@
 .staff-card {
   position: relative;
+  overflow: hidden;
   width: 56px;
-  height: min(52vh, 420px);
+  height:min(52vh, 420px);
   border: 2px solid #222;
-  /* background image from template binding */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: grid;
   place-items: center;
-  cursor: pointer;
-  outline: none;
-  transition: width .2s ease, box-shadow .2s ease, background .2s ease, padding .2s ease;
   overflow: hidden;
+  transition: width.2s ease, box-shadow .2s ease, padding .2s ease;
 }
+.bg
+{
+  position: absolute;
+  inset: 0;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity .25s ease;
+}
+.bg-collapsed { opacity: 0.75; } 
+.bg-expanded { opacity: 0; } 
 
 /* soft overlay so name stays readable over photo */
 .staff-card::before {
@@ -43,6 +49,9 @@
   align-content: start;
   padding: 12px;
 }
+.staff-card.expanded .bg-collapsed { opacity: 0;}
+.staff-card.expanded .bg-expanded {opacity: 0.5;}
+
 
 .panel {
   position: relative;
@@ -56,6 +65,7 @@
 }
 .staff-card.expanded .panel { opacity: 1; transform: none; }
 
+
 .panel-header {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -68,12 +78,21 @@
 .title h3 { margin: 0; font-size: 18px; }
 .role { margin: 2px 0 0; color: #666; font-size: 13px; }
 
-.bio { margin: 8px 0 0; line-height: 1.55; color: #222; }
+.bio { margin: 8px 0 0; line-height: 1.55; color: #222; width: 50%;}
 
-.socials {
-  list-style: none; margin: 12px 0 0; padding: 0; display: flex; gap: 12px; flex-wrap: wrap;
+.socials 
+{
+  list-style: none; 
+  margin: 12px 0 0; 
+  padding: 0; 
+  display: block; gap: 12px; 
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-decoration: underline;
+  text-decoration-color: rgb(0, 65, 187);
 }
-.socials a { color: #0b5; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.socials li { margin-top: 6px; }
+.socials a { color: rgb(0, 65, 187); text-decoration: none; border-bottom: 1px dotted currentColor; }
 .socials a:hover { border-bottom-style: solid; }
 
 @media (max-width: 600px) {

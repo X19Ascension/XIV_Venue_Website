@@ -7,4 +7,5 @@ export interface StaffMember
     bio?: string;
     socials?: {label: string, url: string}[];
     bgURL?: string;
+    bgExpandedURL?: string;
 }

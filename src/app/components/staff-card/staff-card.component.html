@@ -1,8 +1,11 @@
 <!-- src/app/components/staff-card/staff-card.component.html -->
+ <!--[style.background-image] = "expanded
+      ? (member.bgExpandedURL ? 'url(' + member.bgExpandedURL + ')' : (member.bgURL ? 'url(' + member.bgURL + ')' : null))
+      : (member.bgURL ? 'url(' + member.bgURL + ')' : null)"-->
 <div
   class="staff-card"
   [class.expanded]="expanded"
-  [style.background-image] = "member.bgURL ? 'url(' + member.bgURL + ')' : null"
+  
   role="button"
   tabindex="0"
   (click)="onToggle()"
@@ -14,6 +17,8 @@
 >
   <!-- collapsed view -->
   <span class="vertical-name" *ngIf="!expanded">{{ member.name }}</span>
+  <div class="bg bg-collapsed" [style.background-image]="member.bgURL ? 'url(' + member.bgURL + ')' : null"></div>
+  <div class="bg bg-expanded"  [style.background-image]="(member.bgExpandedURL || member.bgURL) ? 'url(' + (member.bgExpandedURL || member.bgURL) + ')' : null"></div>
 
   <!-- expanded view -->
   <div class="panel" *ngIf="expanded" [id]="'panel-' + member.id">
