@@ -38,4 +38,5 @@ jobs:
           app_location: dist/venue-website
           skip_app_build: true
           # Pick up your SPA fallback config at repo root:
-          config_file_location: staticwebapp.config.json
+          config_file_location: /
+
