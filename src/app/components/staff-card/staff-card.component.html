@@ -2,6 +2,7 @@
 <div
   class="staff-card"
   [class.expanded]="expanded"
+  [style.background-image] = "member?.bgURL ? 'url(' + member.bgURL + ')' : null"
   role="button"
   tabindex="0"
   (click)="onToggle()"

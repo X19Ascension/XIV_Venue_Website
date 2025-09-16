@@ -6,4 +6,5 @@ export interface StaffMember
     avatarURL?: string;
     bio?: string;
     socials?: {label: string, url: string}[];
+    bgURL?: string;
 }
