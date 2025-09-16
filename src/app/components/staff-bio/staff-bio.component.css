@@ -1,0 +1,50 @@
+.sheet-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.38);
+  z-index: 80;
+}
+
+.sheet {
+  position: fixed;
+  right: 0; top: 0; bottom: 0;
+  width: min(520px, 92vw);
+  background: #fff;
+  border-left: 1px solid #ddd;
+  box-shadow: -8px 0 24px rgba(0,0,0,.15);
+  padding: 20px 20px 28px;
+  overflow-y: auto;
+  z-index: 90;
+  display: grid;
+  gap: 16px;
+  animation: slideIn .18s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(12px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.close-btn {
+  position: absolute; right: 10px; top: 6px;
+  background: transparent; border: 0; font-size: 28px; line-height: 1;
+  cursor: pointer; color: #333;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px; align-items: center;
+}
+.header img {
+  width: 72px; height: 72px; object-fit: cover; border-radius: 10px; border: 1px solid #eee;
+}
+.title h3 { margin: 0; font-size: 20px; }
+.role { margin: 4px 0 0; color: #666; font-size: 13px; }
+
+.bio { margin: 0; line-height: 1.6; color: #222; }
+
+.socials {
+  list-style: none; margin: 0; padding: 0; display: flex; gap: 12px; flex-wrap: wrap;
+}
+.socials a { color: #0b5; text-decoration: none; border-bottom: 1px dotted currentColor; }
+.socials a:hover { border-bottom-style: solid; }

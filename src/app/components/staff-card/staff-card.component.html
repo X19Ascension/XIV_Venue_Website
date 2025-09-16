@@ -1,0 +1,35 @@
+<!-- src/app/components/staff-card/staff-card.component.html -->
+<div
+  class="staff-card"
+  [class.expanded]="expanded"
+  role="button"
+  tabindex="0"
+  (click)="onToggle()"
+  (keydown.enter)="onToggle()"
+  (keydown.space)="onToggle()"
+  [attr.aria-expanded]="expanded"
+  [attr.aria-controls]="'panel-' + member.id"
+  [attr.aria-label]="'Show bio for ' + member.name"
+>
+  <!-- collapsed view -->
+  <span class="vertical-name" *ngIf="!expanded">{{ member.name }}</span>
+
+  <!-- expanded view -->
+  <div class="panel" *ngIf="expanded" [id]="'panel-' + member.id">
+    <div class="panel-header">
+      <img *ngIf="member?.avatarURL" [src]="member.avatarURL" [alt]="member.name + ' avatar'">
+      <div class="title">
+        <h3>{{ member.name }}</h3>
+        <p class="role" *ngIf="member.role">{{ member.role }}</p>
+      </div>
+    </div>
+
+    <p class="bio" *ngIf="member.bio">{{ member.bio }}</p>
+
+    <ul class="socials" *ngIf="member.socials?.length">
+      <li *ngFor="let s of member.socials">
+        <a [href]="s.url" target="_blank" rel="noopener noreferrer">{{ s.label }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

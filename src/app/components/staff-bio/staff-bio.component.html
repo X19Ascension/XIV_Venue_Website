@@ -1,0 +1,26 @@
+<div class="sheet-backdrop" (click)="onBackdropClick($event)" aria-hidden="true"></div>
+
+<aside
+  class="sheet"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="member?.name + ' bio'"
+>
+  <button class="close-btn" (click)="close.emit()" aria-label="Close bio">×</button>
+
+  <div class="header">
+    <img *ngIf="member?.avatarURL" [src]="member.avatarURL" [alt]="member.name + ' avatar'">
+    <div class="title">
+      <h3>{{ member?.name }}</h3>
+      <p class="role" *ngIf="member?.role">{{ member.role }}</p>
+    </div>
+  </div>
+
+  <p class="bio" *ngIf="member?.bio">{{ member.bio }}</p>
+
+  <ul class="socials" *ngIf="member?.socials?.length">
+    <li *ngFor="let s of member.socials">
+      <a [href]="s.url" target="_blank" rel="noopener noreferrer">{{ s.label }}</a>
+    </li>
+  </ul>
+</aside>

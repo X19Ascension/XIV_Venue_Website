@@ -1,0 +1,22 @@
+<section class="hero">
+    <div class="logo-box">
+        <img src="assets/logo.svg" alt="Logo">
+        <!--Empty logo-->
+
+        <div class="location">Venue Location</div>
+    </div>
+
+<hr class="divider"/>
+
+<section class="staff-mag">
+    <h2>STAFF MAG</h2>
+
+    <div class="staff-strip">
+    <app-staff-card
+      *ngFor="let member of staff; trackBy: trackById"
+      [member]="member"
+      [expanded]="expandedId === member.id"
+      (toggle)="toggle($event)">
+    </app-staff-card>
+    </div>
+</section>

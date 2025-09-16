@@ -1,0 +1,40 @@
+.nav {
+  background: #111;
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-decoration: none;
+  color: #fff;
+}
+.tabs {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.tabs a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 8px;
+  border-left: 1px solid #333; /* thin separators like your wireframe */
+}
+.tabs a:first-child {
+  border-left: none;
+}
+.tabs a.active,
+.tabs a:hover {
+  color: #fff;
+}
