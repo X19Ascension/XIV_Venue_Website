@@ -35,8 +35,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AGREEABLE_HILL_0E034F81E }}
           action: upload
           # Deploy the compiled site:
-          app_location: dist/venue-website
+          app_location: dist/venue-website/browser
           skip_app_build: true
           # Pick up your SPA fallback config at repo root:
           config_file_location: /
+
 
