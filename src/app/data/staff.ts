@@ -16,6 +16,8 @@ export const STAFF:StaffMember[] =
     { id: 'haru', name: 'Haru', role: 'Photographer', bio: 'Candid shots + monthly staff mag editor.' },
     { id: 'aki', name: 'Aki', role: 'Floor', bio: 'First to greet, last to leave. Knows every regular.' },
     { id: 'elarea', name: 'Elarea', role: 'PR', bio: 'Events, collabs, submissions. Your point of contact.' },
-    { id: 'sasame', name: 'Sasame', role: 'Website Designer', bio: 'Website Designer', bgURL: 'assets/staff/backgrounds/Sasame.png' }
+    { id: 'sasame', name: 'Sasame', role: 'Website Designer', bio: 'Website Designer', 
+        socials:[{label:'Twitter', url: 'https://x.com/X19A_Sasame'}, {label: 'YouTube', url: 'https://www.youtube.com/@Sasame_Izuriha'}], 
+        bgURL: 'assets/staff/backgrounds/Sasame.png' }
 
 ]
